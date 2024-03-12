@@ -1,3 +1,2 @@
 # AutoskolaTemp
 
-##Komandas līderis - Rinalds
