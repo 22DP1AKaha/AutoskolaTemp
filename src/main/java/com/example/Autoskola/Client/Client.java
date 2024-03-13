@@ -14,19 +14,18 @@ public class Client {
     private String name;
     private String surname;
     private int age;
-    private LocalDate date;
+    private String personCode;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String personCode;
+    private long clientID;
     
 
-    public Client(String name, String surname, int age, String personCode, LocalDate date ){
+    public Client(String name, String surname, int age, String personCode){
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.personCode = personCode;
-        this.date = date;
     }
 
     public String getName(){
@@ -60,13 +59,8 @@ public class Client {
     public void setPersonCode(String personCode){
         this.personCode = personCode;
     }
-
-    public LocalDate date(){
-        return date;
-    }
-
-    public void setDate(LocalDate date){
-        this.date = date;
+    public long getClientID(){
+        return clientID;
     }
 
 }
