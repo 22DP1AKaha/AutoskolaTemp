@@ -1,13 +1,27 @@
 package com.example.Autoskola.Client;
 
+import java.time.LocalDate;
+
+import org.springframework.cglib.core.Local;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Client {
     private String name;
     private String surname;
     private int age;
-    private String personCode;
-    private int date;
+    private LocalDate date;
 
-    public Client(String name, String surname, int age, String personCode, int date ){
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String personCode;
+    
+
+    public Client(String name, String surname, int age, String personCode, LocalDate date ){
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -47,11 +61,11 @@ public class Client {
         this.personCode = personCode;
     }
 
-    public int date(){
+    public LocalDate date(){
         return date;
     }
 
-    public void setDate(int date){
+    public void setDate(LocalDate date){
         this.date = date;
     }
 
