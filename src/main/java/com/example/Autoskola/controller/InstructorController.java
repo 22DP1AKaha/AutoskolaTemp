@@ -14,7 +14,7 @@ public class InstructorController {
     private InstructorRepository instructorRepository;
     
     
-    @GetMapping(value = "/")
+    @GetMapping(value = "/instructor")
     String homePage() {
         Instructor obj1  = new Instructor("John", 22);
         System.out.println(obj1.getInstructorID());

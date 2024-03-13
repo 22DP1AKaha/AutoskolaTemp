@@ -1,7 +1,5 @@
 package com.example.Autoskola.Client;
 
-import java.time.LocalDate;
-
 import org.springframework.cglib.core.Local;
 
 import jakarta.persistence.Entity;
