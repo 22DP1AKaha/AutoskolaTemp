@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
+
 <body>
-    <p>Hello world</p>
+    <nav>
+        <div class="logo">RUNCIS</div>
+        <div class="nav-items">
+            <a href="/">Sākums</a>
+            <a href="/">Par</a>
+            <a href="/">Kontakti</a>
+        </div>
+    </nav>
+    <section class="hero">
+        <div class="hero-container">
+            <div class="column-left">
+                <h1>Iemācies Vadīt Automašīnu Tagad</h1>
+                <p>Labi instruktori, draudzīga sistēma un nekādas grūtības.
+                    Un viss par patīkamu cenu!</p>
+                <button>Pieteikties</button>
+            </div>
+            <div class="column-right">
+                <img th:src="@{/images/runcis.png}" alt="illustration" class="hero-image">
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>
