@@ -1,4 +1,4 @@
-package com.example.Autoskola.Instructor;
+package com.example.Autoskola.Entity;
 
 
 import jakarta.persistence.Entity;

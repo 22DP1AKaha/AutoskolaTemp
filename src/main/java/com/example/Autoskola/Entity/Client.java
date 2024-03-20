@@ -1,6 +1,4 @@
-package com.example.Autoskola.Client;
-
-import org.springframework.cglib.core.Local;
+package com.example.Autoskola.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

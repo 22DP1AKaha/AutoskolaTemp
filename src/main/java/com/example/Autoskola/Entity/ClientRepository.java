@@ -1,4 +1,4 @@
-package com.example.Autoskola.Client;
+package com.example.Autoskola.Entity;
 
 import org.springframework.data.repository.CrudRepository;
 

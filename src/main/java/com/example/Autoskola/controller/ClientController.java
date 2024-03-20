@@ -4,10 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.Autoskola.Client.Client;
-import com.example.Autoskola.Client.ClientRepository;
-import com.example.Autoskola.Instructor.Instructor;
-import com.example.Autoskola.Instructor.InstructorRepository;
+import com.example.Autoskola.Entity.Client;
+import com.example.Autoskola.Entity.ClientRepository;
+
+
+
 
 @Controller
 public class ClientController {
