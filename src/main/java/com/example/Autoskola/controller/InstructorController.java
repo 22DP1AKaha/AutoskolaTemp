@@ -10,6 +10,7 @@ import com.example.Autoskola.Entity.InstructorRepository;
 @Controller
 public class InstructorController {
 
+    @SuppressWarnings("rawtypes")
     @Autowired
     private InstructorRepository instructorRepository;
     

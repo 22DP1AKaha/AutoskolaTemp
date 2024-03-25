@@ -13,6 +13,7 @@ import com.example.Autoskola.Entity.ClientRepository;
 @Controller
 public class ClientController {
 
+    @SuppressWarnings("rawtypes")
     @Autowired
     private ClientRepository clientRepository;
     
