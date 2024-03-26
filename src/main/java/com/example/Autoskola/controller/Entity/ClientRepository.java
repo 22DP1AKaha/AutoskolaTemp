@@ -1,4 +1,4 @@
-package com.example.Autoskola.Entity;
+package com.example.Autoskola.controller.Entity;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -11,5 +11,6 @@ public interface ClientRepository<I> extends CrudRepository<Client, Long> {
 // count
 // delete
 // deleteAll
+    Client findByUsername(String username);
 
 }

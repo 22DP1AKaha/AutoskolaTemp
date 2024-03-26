@@ -1,11 +1,93 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
+ 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+          th:href="@{/css/styles2.css}">
+    <title>Par mums</title>
 </head>
+ 
 <body>
-    <h1>HI world</h1>
+    <header>
+        <nav>
+            <div class="logo">
+              Runcis
+              </div>
+            <ul class="nav-links">
+                <li><a href="/">
+                  Sākums</a>
+                  </li>
+                <li><a href="/par">
+                  Par</a>
+                  </li>
+                <li><a href="/kontakti">
+                  Kontakti</a>
+                  </li>
+                <li><a href="/ienakt">
+                  Ienākt</a>
+                  </li>
+            </ul>
+        </nav>
+    </header>
+ 
+    <section class="about">
+        <h1>Par mums</h1>
+        <p style="font-weight: bold">
+          Runcis autoskola ir...
+          </p>
+        <div class="about-info">
+            <div class="about-img">
+                <img th:src="@{/images/runcis.png}" alt="illustration">
+
+            </div>
+        </div>
+    </section>
+ 
+    <section class="team">
+        <h1>Meet Our Team</h1>
+        <div class="team-cards">
+            <div class="card">
+                <div class="card-img">
+                    <img th:src="@{/images/instructor1.png}" alt="instruktors 1">
+                </div>
+                <div class="card-info">
+                    <h2 class="card-name">Alberts</h2>
+                    <p class="card-role">Bīskaps</p>
+                    <p class="card-email">BiskapsAlbis@inbox.lv</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img">
+                    <img th:src="@{/images/instructor2.png}" alt="instruktors 2">
+                </div>
+                <div class="card-info">
+                    <h2 class="card-name">Kleopatra</h2>
+                    <p class="card-role">Faraons</p>
+                    <p class="card-email">BaddieKleo@yahoo.com</p>
+                </div>
+            </div>
+           
+            <!-- Card 3 -->
+           
+            <div class="card">
+                <div class="card-img">
+                    <img th:src="@{/images/instructor3.png}" alt="instruktors 3">
+                </div>
+                <div class="card-info">
+                    <h2 class="card-name">Rūdolfs</h2>
+                    <p class="card-role">Ziemeļbriedis</p>
+                    <p class="card-email">SantasPaligs@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <footer>
+        <p>© 2024 Runcis.</p>
+    </footer>
 </body>
+ 
 </html>

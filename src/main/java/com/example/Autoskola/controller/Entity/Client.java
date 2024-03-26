@@ -1,4 +1,4 @@
-package com.example.Autoskola.Entity;
+package com.example.Autoskola.controller.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,17 +11,21 @@ public class Client {
     private String surname;
     private int age;
     private String personCode;
+    private String lietotajvards;
+    private String parole;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long clientID;
     
 
-    public Client(String name, String surname, int age, String personCode){
+    public Client(String name, String surname, int age, String personCode, String lietotajvards, String parole){
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.personCode = personCode;
+        this.lietotajvards = lietotajvards;
+        this.parole = parole;
     }
 
     public String getName(){
@@ -57,6 +61,16 @@ public class Client {
     }
     public long getClientID(){
         return clientID;
+    }
+    public String getLietotajvards(){
+        return lietotajvards;
+    }
+    public String getParole(){
+        return parole;
+    }
+
+    public Client(){
+        
     }
 
 }

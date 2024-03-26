@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.Autoskola.Entity.Client;
-import com.example.Autoskola.Entity.ClientRepository;
+import com.example.Autoskola.controller.Entity.Client;
+import com.example.Autoskola.controller.Entity.ClientRepository;
 
 
 
@@ -18,9 +18,9 @@ public class ClientController {
     private ClientRepository clientRepository;
     
     
-    @GetMapping(value = "/client")
-    String homePage() {
-        Client obj1Client  = new Client("Peter", "Smith", 18, "417212-22433");
-        return "index";
-    }
+    // @GetMapping(value = "/client")
+    // String homePage() {
+    //     Client obj1Client  = new Client("Peter", "Smith", 18, "417212-22433");
+    //     return "index";
+    // }
 }
