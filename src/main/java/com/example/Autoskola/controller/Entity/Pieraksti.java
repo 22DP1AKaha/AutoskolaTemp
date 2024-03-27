@@ -16,7 +16,7 @@ public class Pieraksti {
 
 
   
-    public Pieraksts(String laiks, String instructor, boolean pierakstits, int pierakstaID){
+    public Pieraksti(String laiks, String instructor, boolean pierakstits, int pierakstaID){
         this.laiks = laiks;
         this.instructor= instructor;
         this.pierakstits = pierakstits;
