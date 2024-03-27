@@ -7,21 +7,26 @@ public class WebController {
 
     @GetMapping("/")
     public String home() {
-        return "index"; // assuming your HTML file is named index.html
+        return "index"; 
     }
 
     @GetMapping("/par")
     public String about() {
-        return "about"; // this should be the name of your about template
+        return "about"; 
     }
 
     @GetMapping("/kontakti")
     public String contacts() {
-        return "contacts"; // this should be the name of your contacts template
+        return "contacts"; 
     }
 
     @GetMapping("/ienakt")
     public String login() {
-        return "login"; // this should be the name of your login template
+        return "login"; 
+    }
+
+    @GetMapping("/registreties")
+    public String register() {
+        return "register";
     }
 }

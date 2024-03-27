@@ -1,16 +1,10 @@
 package com.example.Autoskola.controller.Entity;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface ClientRepository<I> extends CrudRepository<Client, Long> {
-
-// save
-// findOne
-// exists
-// findAll
-// count
-// delete
-// deleteAll
+@Repository
+public interface ClientRepository extends CrudRepository<Client, Long> {
     Client findByUsername(String username);
-
+    Client findByUsernameAndPassword(String username, String password);
 }

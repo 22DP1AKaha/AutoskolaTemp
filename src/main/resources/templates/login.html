@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/loginstyle.css}">
 </head>
 <body>
-    
+    <form action="/ienakt" method="post">
+        <label for="E-pasts">E-pasts</label><br>
+        <input type="text" id="E-pasts" name="E-pasts"> <br>
+        <br>
+
+        <label for="parole">Parole</label><br>
+        <input type="password" id="parole" name="parole"><br>
+        <br>
+        <button type="submit">Ienākt</button>
+    </form>
 </body>
 </html>

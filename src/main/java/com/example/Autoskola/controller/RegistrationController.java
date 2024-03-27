@@ -13,18 +13,24 @@ public class RegistrationController {
     @Autowired
     private ClientRepository clientRepository;
 
-    @PostMapping ("/register")
-    public String Registration(@RequestParam("lietotajvards") String username, @RequestParam("parole") String password, @RequestParam("vards") String name, 
-    @RequestParam("uzvards") String surname, @RequestParam("vecums") int age, @RequestParam("personaskods") String personCode){
-        Client check = clientRepository.findByUsername(username);
-        if (check == null){
-            Client client = new Client(name, surname, age,personCode, username, password);
-            clientRepository.save(client);
-            return "redirect:/login";
+    @PostMapping("/registreties")
+    public String register(@RequestParam("E-pasts") String username, @RequestParam("parole") String password, @RequestParam("vards") String name, 
+    @RequestParam("uzvards") String surname, @RequestParam("vecums") int age, @RequestParam("personaskods") String personCode) {
+        boolean isRegistrationSuccessful = registerNewClient(username, password, name, surname, age, personCode);
+        if (isRegistrationSuccessful) {
+            return "redirect:/ienakt";
+        } else {
+            return "redirect:/registreties?error";
         }
-        else
-        {
-            return "redirect:/register";
+    }
+
+    private boolean registerNewClient(String username, String password, String name, String surname, int age, String personCode) {
+        Client existingClient = clientRepository.findByUsername(username);
+        if (existingClient == null) {
+            Client newClient = new Client(name, surname, age, personCode, username, password);
+            clientRepository.save(newClient);
+            return true; 
         }
+        return false;
     }
 }

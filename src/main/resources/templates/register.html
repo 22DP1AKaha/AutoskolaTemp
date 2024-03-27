@@ -2,12 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Redirected Page</title>
+    <title>Registreties</title>
+    <link rel="stylesheet" th:href="@{/css/loginstyle.css}">
 </head>
 <body>
-    <form action="/register" method="post">
+    <form action="/registreties" method="post">
         <label for="lietotajvards">E-pasts</label><br>
-        <input type="text" id="lietotajvards" name="lietotajvards"> <br>
+        <input type="text" id="E-pasts" name="E-pasts"> <br>
         <br>
 
         <label for="parole">Parole</label><br>
@@ -28,6 +29,5 @@
 
         <button type="submit">Registrēties </button>
     </form>
-    <h1>You've been redirected to a new page!</h1>
 </body>
 </html>
