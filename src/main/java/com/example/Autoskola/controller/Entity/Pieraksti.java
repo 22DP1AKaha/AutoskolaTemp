@@ -12,6 +12,9 @@ public class Pieraksti {
    private String laiks;
    private String instructor;
    private boolean pierakstits;
+
+   @Id
+   @GeneratedValue(strategy = GenerationType.AUTO)
    private int pierakstaID;
 
 
@@ -43,7 +46,7 @@ public class Pieraksti {
         return pierakstits;
     }
 
-    public void setPierakstits(boolean pierakstis){
+    public void setPierakstits(boolean pierakstits){
         this.pierakstits = pierakstits;
     }
 
