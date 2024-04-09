@@ -16,6 +16,9 @@ public class RegistrationController {
     private ClientRepository clientRepository;
 
     @GetMapping("/registreties")
+    public String register() {
+        return "register";
+    }
     public String showRegistrationForm(@RequestParam(value = "error", required = false) String error, Model model) {
         if (error != null) {
             model.addAttribute("error", "Lietotājs ar šādu e-pastu jau eksistē.");
@@ -33,7 +36,7 @@ public class RegistrationController {
             return "redirect:/ienakt";
         } else {
             model.addAttribute("error", "Lietotājs ar šādu e-pastu jau eksistē.");
-            return "registreties";
+            return "redirect:/registreties";
         }
     }
 

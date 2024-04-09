@@ -20,13 +20,7 @@ public class WebController {
         return "contacts"; 
     }
 
-    @GetMapping("/ienakt")
-    public String login() {
-        return "login"; 
-    }
+    
 
-    @GetMapping("/registreties")
-    public String register() {
-        return "register";
-    }
+    
 }

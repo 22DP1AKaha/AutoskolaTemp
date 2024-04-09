@@ -10,7 +10,6 @@ body {
     font-family: Arial, sans-serif;
 }
  
-/* Header */
  
 header {
     background-color: white;
@@ -58,7 +57,6 @@ nav {
     color: white;
 }
  
-/* About Section */
  
 .about {
     background: orange;
@@ -123,8 +121,7 @@ button {
 button:hover {
     background-color: #1f9405;
 }
- 
-/* Team Section */
+
  
 .team {
     padding: 30px 0;
@@ -191,7 +188,6 @@ button:hover {
     color: #555;
 }
  
-/* Footer */
 footer {
     background-color: #222;
     color: white;

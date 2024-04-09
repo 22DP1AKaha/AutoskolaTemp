@@ -20,6 +20,11 @@ public class LoginController {
         return existingClient != null;
     }
     
+    @GetMapping("/ienakt")
+    public String login() {
+        return "login"; 
+    }
+    
     @PostMapping("/ienakt")
     public String login(@RequestParam("E-pasts") String username, @RequestParam("parole") String password, RedirectAttributes redirectAttributes) {
         boolean isAuthenticated = authenticateUser(username, password);
