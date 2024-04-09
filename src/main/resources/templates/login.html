@@ -8,10 +8,13 @@
 </head>
 <body>
     <form action="/ienakt" method="post">
+        <h1>Ienākt</h1>
+        <span th:if="${error}" th:text="${error}" class="error-message"></span>
+        <br>
+        <br>
         <label for="E-pasts">E-pasts</label><br>
         <input type="text" id="E-pasts" name="E-pasts"> <br>
         <br>
-
         <label for="parole">Parole</label><br>
         <input type="password" id="parole" name="parole"><br>
         <br>

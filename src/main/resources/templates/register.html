@@ -2,32 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Registreties</title>
+    <title>Reģistrēties</title>
     <link rel="stylesheet" th:href="@{/css/loginstyle.css}">
 </head>
 <body>
     <form action="/registreties" method="post">
-        <label for="lietotajvards">E-pasts</label><br>
+        <div th:if="${error}" class="error-message" th:text="${error}"></div>
+
+        <label for="E-pasts">E-pasts</label><br>
         <input type="text" id="E-pasts" name="E-pasts"> <br>
         <br>
 
         <label for="parole">Parole</label><br>
         <input type="password" id="parole" name="parole"><br>
         <br>
+        
         <label for="vards">Vārds</label><br>
         <input type="text" id="vards" name="vards"><br>
         <br>
+        
         <label for="uzvards">Uzvārds</label><br>
         <input type="text" id="uzvards" name="uzvards"><br>
         <br>
+        
         <label for="vecums">Vecums</label><br>
         <input type="text" id="vecums" name="vecums"><br>
         <br>
+        
         <label for="personaskods">Personas kods</label><br>
         <input type="text" id="personaskods" name="personaskods"><br>
         <br>
 
-        <button type="submit">Registrēties </button>
+        <button type="submit">Registrēties</button>
     </form>
 </body>
 </html>

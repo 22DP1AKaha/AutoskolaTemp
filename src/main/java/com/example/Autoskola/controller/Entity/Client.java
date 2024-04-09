@@ -1,5 +1,6 @@
 package com.example.Autoskola.controller.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,7 +12,10 @@ public class Client {
     private String surname;
     private int age;
     private String personCode;
+
+    @Column(unique = true) 
     private String username;
+
     private String password;
 
     @Id
@@ -44,7 +48,7 @@ public class Client {
         this.surname = surname;
     }
 
-    public int age(){
+    public int getAge(){ 
         return age;
     }
 
@@ -52,7 +56,7 @@ public class Client {
         this.age = age;
     }
 
-    public String personCode(){
+    public String getPersonCode(){ 
         return personCode;
     }
 
@@ -78,5 +82,4 @@ public class Client {
     public Client(){
         
     }
-
 }

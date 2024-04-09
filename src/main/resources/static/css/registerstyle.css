@@ -48,3 +48,8 @@ h1 {
     color: #ff8c00;
     text-align: center;
 }
+.error-message {
+    color: #ff0000; 
+    font-weight: bold;
+    margin-bottom: 15px;
+}
