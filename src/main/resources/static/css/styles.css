@@ -97,3 +97,10 @@ button:hover {
         grid-template-columns: 1fr;
     }  
 }
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
