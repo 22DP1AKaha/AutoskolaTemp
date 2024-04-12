@@ -15,11 +15,6 @@ public class WebController {
         return "about"; 
     }
 
-    @GetMapping("/kontakti")
-    public String contacts() {
-        return "contacts"; 
-    }
-
     
 
     

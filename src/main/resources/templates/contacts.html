@@ -23,17 +23,13 @@
 
     <div class="about">
         <h1>Kontakti</h1>
-        <section>
-            <h2>Adrese</h2>
-            <p>Kandavas iela 14B</p>
-            <p>Kurzemes rajons</p>
-            <p>Zasulauks, Rīga</p>
-            <p>Asio SIA</p>
-        </section>
-        <section>
-            <h2>Kontaktinfo</h2>
-            <p>E-pasts: runcisAuto@gmail.com</p>
-            <p>Tel. nr.: +371 29930101</p>
+        <section th:block="${contacts}">
+            <h2>Kontakti</h2>
+            <div th:each="contact : ${contacts}">
+                <h3 th:text="${contact.name}">Name</h3>
+                <p th:text="${contact.email}">Email</p>
+                <p th:text="${contact.phone}">Phone</p>
+            </div>
         </section>
     </div>
 
