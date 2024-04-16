@@ -1,6 +1,5 @@
 package com.example.Autoskola.entity;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,25 +7,29 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Instructor {
-    private String name;
-    private int age;
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long instructorID;
+    private String name;
+    private int age;
+    private String photoUrl;
+    private String pricePerSession; 
 
-    public Instructor() {
-    }
+    public Instructor() {}
 
-    public Instructor(String name, int age, long instructorID) {
+    public Instructor(String name, int age, String photoUrl, String pricePerSession) {
         this.name = name;
         this.age = age;
+        this.photoUrl = photoUrl;
+        this.pricePerSession = pricePerSession;
+    }
+
+    public long getInstructorID() {
+        return instructorID;
+    }
+
+    public void setInstructorID(long instructorID) {
         this.instructorID = instructorID;
-    }
-
-    public Instructor(String name, int age) {
-        this.name = name;
-        this.age = age;
     }
 
     public String getName() {
@@ -45,20 +48,30 @@ public class Instructor {
         this.age = age;
     }
 
-    public long getInstructorID() {
-        return instructorID;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setInstructorID(long instructorID) {
-        this.instructorID = instructorID;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getPricePerSession() {
+        return pricePerSession;
+    }
+
+    public void setPricePerSession(String pricePerSession) {
+        this.pricePerSession = pricePerSession;
     }
 
     @Override
     public String toString() {
         return "Instructor{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", instructorID=" + instructorID +
-                '}';
+               "instructorID=" + instructorID +
+               ", name='" + name + '\'' +
+               ", age=" + age +
+               ", photoUrl='" + photoUrl + '\'' +
+               ", pricePerSession=" + pricePerSession +
+               '}';
     }
 }

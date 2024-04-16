@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title>Instructors</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                Runcis
+            </div>
+            <ul class="nav-links">
+                <a href="/">Sākums</a>
+                <a href="/par">Par</a>
+                <a href="/kontakti">Kontakti</a>
+                <a href="/instruktori">Instruktori</a>
+                <a href="/ienakt">Ienākt</a>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="instructor-team">
+        <h1>Iepazīsti mūsu instruktorus!</h1>
+        <div class="instructor-team-cards" th:each="instructor : ${instructors}">
+            <div class="instructor-card">
+                <div class="instructor-card-img">
+                    <img th:src="@{'/images/' + ${instructor.photoUrl}}" alt="Instructor Photo">
+                </div>
+                <div class="instructor-card-info">
+                    <h2 class="instructor-card-name" th:text="${instructor.name}"></h2>
+                    <p class="instructor-card-price" th:text="'Cena par nodarbību: ' + ${instructor.pricePerSession}"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>© 2024 Runcis.</p>
+    </footer>
+</body>
+</html>

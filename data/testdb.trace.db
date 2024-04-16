@@ -544,3 +544,6 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: /workspaces/Auto
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 60 more
+2024-04-16 07:40:02.262663Z jdbc[23]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "INSTRCONTACT" not found; SQL statement:
+SELECT * FROM INSTRCONTACT UCTOR [42102-224]
