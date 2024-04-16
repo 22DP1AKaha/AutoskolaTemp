@@ -19,11 +19,10 @@ public class Pieraksti {
 
 
   
-    public Pieraksti(String laiks, String instructor, boolean pierakstits, int pierakstaID){
+    public Pieraksti(String laiks, String instructor, boolean pierakstits){
         this.laiks = laiks;
         this.instructor= instructor;
         this.pierakstits = pierakstits;
-        this.pierakstaID = pierakstaID;
     }
 
     public String getLaiks(){
@@ -52,10 +51,6 @@ public class Pieraksti {
 
     public int getInstructorID(){
         return pierakstaID;
-    }
-
-    public void setPierakstaID(int pierakstaID){
-        this.pierakstaID = pierakstaID;
     }
 
 }
