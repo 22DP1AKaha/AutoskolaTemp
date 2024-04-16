@@ -53,4 +53,9 @@ public class Pieraksti {
         return pierakstaID;
     }
 
+    public Pieraksti()
+    {
+
+    }
+
 }
