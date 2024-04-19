@@ -9,4 +9,5 @@ import com.example.Autoskola.entity.Client;
 public interface ClientRepository extends CrudRepository<Client, Long> {
     Client findByUsername(String username); 
     Client findByUsernameAndPassword(String username, String password); 
+    Client findByIsActiveTrue();
 }

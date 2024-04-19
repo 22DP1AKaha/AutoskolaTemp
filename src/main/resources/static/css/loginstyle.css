@@ -20,7 +20,7 @@ label {
     font-weight: bold;
     color: #ff8c00;
 }
-
+input[type="email"],
 input[type="text"],
 input[type="password"] {
     width: 100%;

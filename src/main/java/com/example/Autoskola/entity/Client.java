@@ -12,6 +12,7 @@ public class Client {
     private String surname;
     private int age;
     private String personCode;
+    public boolean isActive;
 
     @Column(unique = true) 
     private String username;

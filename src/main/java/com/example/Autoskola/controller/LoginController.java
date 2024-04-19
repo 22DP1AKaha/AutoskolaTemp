@@ -14,22 +14,31 @@ import com.example.Autoskola.repository.ClientRepository;
 public class LoginController {
     @Autowired
     private ClientRepository clientRepository;
-
-    private boolean authenticateUser(String username, String password) {
-        Client existingClient = clientRepository.findByUsernameAndPassword(username, password); 
-        return existingClient != null;
-    }
+    private Client client;  
     
     @GetMapping("/ienakt")
     public String login() {
+
+        client = clientRepository.findByIsActiveTrue();
+        if (client != null) {
+            return "redirect:/"; 
+        }
+        else
+        {
         return "login"; 
+        }
     }
     
     @PostMapping("/ienakt")
     public String login(@RequestParam("E-pasts") String username, @RequestParam("parole") String password, RedirectAttributes redirectAttributes) {
-        boolean isAuthenticated = authenticateUser(username, password);
-        if (isAuthenticated) {
+        client = clientRepository.findByUsername(username);
+
+        if (client != null && client.getPassword().equals(password)) 
+        {
+            client.isActive = true;
+            clientRepository.save(client);
             return "redirect:/"; 
+            
         } else {
             redirectAttributes.addFlashAttribute("error", "Nepareizs e-pasts vai parole"); 
             return "redirect:/ienakt"; 
