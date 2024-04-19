@@ -21,7 +21,7 @@ public class LoginController {
 
         client = clientRepository.findByIsActiveTrue();
         if (client != null) {
-            return "redirect:/"; 
+            return "redirect:/profile"; 
         }
         else
         {

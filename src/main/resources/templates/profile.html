@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" th:href="@{/css/profilestyle.css}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Auto School!</h1>
+        
+        <section class="profile">
+            <div class="profile-info">
+                <h2 th:text="${user.name + ' ' + user.surname}"></h2>
+                <p th:text="'Age: ' + ${user.age}"></p>
+                <p th:text="'Person Code: ' + ${user.personCode}"></p>
+                <p th:text="'Username: ' + ${user.username}"></p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
