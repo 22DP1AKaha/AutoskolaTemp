@@ -1,5 +1,7 @@
 package com.example.Autoskola.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,4 +12,5 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
     Client findByUsername(String username); 
     Client findByUsernameAndPassword(String username, String password); 
     Client findByIsActiveTrue();
+    List<Client> findAll();
 }
