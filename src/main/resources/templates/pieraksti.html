@@ -17,7 +17,9 @@
                 <a href="/par">Par</a>
                 <a href="/kontakti">Kontakti</a>
                 <a href="/instruktori">Instruktori</a>
-                <a href="/ienakt">Ienākt</a>
+                <div th:each="client : ${Client}">
+                    <a th:href="${client.isActive ? '/iziet' : '/ienakt'}">Link</a>
+                </div>
             </ul>
         </nav>
     </header>

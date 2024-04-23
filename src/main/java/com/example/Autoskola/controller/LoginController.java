@@ -45,6 +45,16 @@ public class LoginController {
         }
     }
 
+    @GetMapping("/iziet")
+    public String logout() {
+        Client client = clientRepository.findByIsActiveTrue();
+        if (client != null) {
+            client.isActive = false;
+            clientRepository.save(client);
+        }
+        return "redirect:/";
+    }
+
     @GetMapping(value = "/forgotpassword")
     public String forgotpassword() {
         return "forgotpassword";
