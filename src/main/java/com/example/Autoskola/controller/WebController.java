@@ -16,6 +16,7 @@ public class WebController {
     @Autowired
     private ClientRepository clientRepository;
     private Client client; 
+    
 
     @GetMapping("/")
     public String home() {
@@ -32,9 +33,9 @@ public class WebController {
     }
 
     @GetMapping("/par")
-    public String about() {
+    public String about(Model model) {
         List<Client> clients = clientRepository.findAll();
-        
+        model.addAttribute("clients", clients);
         return "about"; 
     }   
     

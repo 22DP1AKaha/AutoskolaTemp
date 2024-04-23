@@ -20,10 +20,7 @@
                 <a href="/par">Par</a>
                 <a href="/kontakti">Kontakti</a>
                 <a href="/instruktori">Instruktori</a>
-                <div th:each="client : ${clients}">
-                    <span th:if="${client.isActive == False}"><a href="/ienakt">Ienākt</a></span>
-                    <span th:if="${client.isActive == True}"><a href="/iziet">Iziet</a></span>
-                </div>
+                <a href="/ienakt">Ienākt</a>
             </ul>
         </nav>
     </header>
