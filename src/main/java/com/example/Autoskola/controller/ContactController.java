@@ -26,10 +26,12 @@ public class ContactController {
 
     @GetMapping("/kontakti")
     public String showContacts(Model model) {
-        List<Client> clients = clientRepository.findAll();
+        Client client = clientRepository.findByIsActiveTrue();
         List<Contact> contacts = contactService.findAll();
         model.addAttribute("contacts", contacts);
-        model.addAttribute("clients", clients);
+        if (client != null){    
+            model.addAttribute("client", client);
+        }
         return "contacts"; 
     }
 }

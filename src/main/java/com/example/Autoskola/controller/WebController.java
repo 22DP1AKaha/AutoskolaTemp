@@ -1,6 +1,5 @@
 package com.example.Autoskola.controller;
 
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,8 +35,10 @@ public class WebController {
 
     @GetMapping("/par")
     public String about(Model model) {
-        List<Client> clients = clientRepository.findAll();
-        model.addAttribute("clients", clients);
+        Client client = clientRepository.findByIsActiveTrue();
+        if (client != null){    
+            model.addAttribute("client", client);
+        }
         return "about"; 
     }   
 

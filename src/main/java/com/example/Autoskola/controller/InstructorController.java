@@ -23,9 +23,11 @@ public class InstructorController {
     @GetMapping("/instruktori")
     public String showInstructors(Model model) {
         List<Instructor> instructors = instructorService.findAll();
-        List<Client> clients = clientRepository.findAll();
+        Client client = clientRepository.findByIsActiveTrue();
         model.addAttribute("instructors", instructors);
-        model.addAttribute("clients", clients);
+        if (client != null){    
+            model.addAttribute("client", client);
+        }
         return "instructors"; 
     }
 }
