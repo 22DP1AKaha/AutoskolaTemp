@@ -19,13 +19,15 @@ public class WebController {
     
 
     @GetMapping("/")
-    public String home() {
+    public String home(Model model) {
         client = clientRepository.findByIsActiveTrue();
         if (client != null) {
             if(client.isActive = false) {
                 return "index";
             }
             else {
+                client = clientRepository.findByIsActiveTrue();
+                model.addAttribute("name", client.getName());
                 return "index_loggedIn";
             }
         }

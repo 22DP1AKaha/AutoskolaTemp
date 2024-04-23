@@ -26,6 +26,7 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
+    align-items: center; 
 }
 
 .nav-links li {
@@ -37,6 +38,7 @@ nav {
     padding: 10px;
     font-weight: bold;
     text-decoration: none;
+    display: inline-block; 
 }
 
 .nav-links a:hover {
