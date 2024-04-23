@@ -40,7 +40,7 @@ public class RegistrationController {
         }
     }
 
-    private boolean registerNewClient(String username,  String name, String surname, String password, int age, String personCode) {
+    private boolean registerNewClient(String username,  String password, String name, String surname, int age, String personCode) {
         if (clientRepository.findByUsername(username) == null) {
             Client newClient = new Client(name, surname, age, personCode, username, password);
             clientRepository.save(newClient);

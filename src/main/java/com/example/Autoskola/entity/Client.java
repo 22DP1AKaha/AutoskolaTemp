@@ -13,6 +13,7 @@ public class Client {
     private int age;
     private String personCode;
     public boolean isActive;
+    // public int MeginajumuSkaits;
 
     @Column(unique = true) 
     private String username;
