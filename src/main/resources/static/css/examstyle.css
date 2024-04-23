@@ -1,0 +1,37 @@
+body {
+    background-color: orange;
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: white;
+    color: orange;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}

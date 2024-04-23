@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Take Exam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Exam</h2>
+        <form action="/exam/submit" method="post">
+            <ul>
+                <li th:each="question : ${questions}">
+                    <p><strong>Question:</strong> <span th:text="${question.question}"></span></p>
+                    <input type="hidden" name="questionId" th:value="${question.id}">
+                    
+                    <input type="radio" id="answer1" name="answers[[${question.id}]]" th:value="${question.answer1}">
+                    <label for="answer1" th:text="${question.answer1}"></label><br>
+                    
+                    <input type="radio" id="answer2" name="answers[[${question.id}]]" th:value="${question.answer2}">
+                    <label for="answer2" th:text="${question.answer2}"></label><br>
+                    
+                    <input type="radio" id="answer3" name="answers[[${question.id}]]" th:value="${question.answer3}">
+                    <label for="answer3" th:text="${question.answer3}"></label><br>
+                    
+                    <input type="radio" id="answer4" name="answers[[${question.id}]]" th:value="${question.answer4}">
+                    <label for="answer4" th:text="${question.answer4}"></label><br>
+                </li>
+            </ul>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
