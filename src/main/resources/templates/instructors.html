@@ -28,7 +28,7 @@
         <div class="instructor-team-cards" th:each="instructor : ${instructors}">
             <div class="instructor-card">
                 <div class="instructor-card-img">
-                    <img th:src="@{'/images/' + ${instructor.photoUrl}}" alt="Instructor Photo">
+                    <img th:src="${instructor.photoUrl}" alt="Instructor Photo">
                 </div>
                 <div class="instructor-card-info">
                     <h2 class="instructor-card-name" th:text="${instructor.name}"></h2>
