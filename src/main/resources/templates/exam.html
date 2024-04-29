@@ -8,22 +8,25 @@
 <body>
     <div class="container">
         <h2>Exam</h2>
-        <form action="/exam/submit" method="post">
+        <form action="/submit" method="post">
+            <input type="hidden" name="questionIndex" th:value="${questionNumber - 1}">
+            <input type="hidden" name="score" th:value="${score}">
             <ul>
-                <li th:each="question : ${questions}">
+                <li>
                     <p><strong>Question:</strong> <span th:text="${question.question}"></span></p>
+                    <img th:src="${question.imageUrl}" alt="Image not found">
                     <input type="hidden" name="questionId" th:value="${question.id}">
                     
-                    <input type="radio" id="answer1" name="answers[[${question.id}]]" th:value="${question.answer1}">
+                    <input type="radio" id="answer1" name="selectedAnswer" th:value="${question.answer1}">
                     <label for="answer1" th:text="${question.answer1}"></label><br>
                     
-                    <input type="radio" id="answer2" name="answers[[${question.id}]]" th:value="${question.answer2}">
+                    <input type="radio" id="answer2" name="selectedAnswer" th:value="${question.answer2}">
                     <label for="answer2" th:text="${question.answer2}"></label><br>
                     
-                    <input type="radio" id="answer3" name="answers[[${question.id}]]" th:value="${question.answer3}">
+                    <input type="radio" id="answer3" name="selectedAnswer" th:value="${question.answer3}">
                     <label for="answer3" th:text="${question.answer3}"></label><br>
                     
-                    <input type="radio" id="answer4" name="answers[[${question.id}]]" th:value="${question.answer4}">
+                    <input type="radio" id="answer4" name="selectedAnswer" th:value="${question.answer4}">
                     <label for="answer4" th:text="${question.answer4}"></label><br>
                 </li>
             </ul>

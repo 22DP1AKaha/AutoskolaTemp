@@ -16,21 +16,21 @@ public class Exam {
     private String answer2;
     private String answer3;
     private String answer4;
-    private String correctAnswer; 
-    
+    private String correctAnswer;
+    private String imageUrl;
 
     public Exam() {
     }
 
-    public Exam(String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer) {
+    public Exam(String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer, String imageUrl) {
         this.question = question;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
         this.answer4 = answer4;
         this.correctAnswer = correctAnswer;
+        this.imageUrl = imageUrl;
     }
-    
 
     public Long getId() {
         return id;
@@ -87,5 +87,12 @@ public class Exam {
     public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
-}
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+}
