@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User Profile</title>
+    <link rel="stylesheet" th:href="@{/css/profilestyle.css}">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                Runcis
+            </div>
+            <ul class="nav-links">
+                <a href="/">Sākums</a>
+                <a href="/par">Par</a>
+                <a href="/kontakti">Kontakti</a>
+                <a href="/instruktori">Instruktori</a>
+                <a href="/iziet">Iziet</a>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <span class="font-weight-bold" th:text="${client.name + ' ' + client.surname}"></span>
+                    <span class="text-black-50" th:text="${client.username}"></span>
+                </div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profila datu rediģēšana:</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6"><label class="labels">Vārds</label><input type="text" class="form-control" placeholder="First name" th:value="${client.name}"></div>
+                        <div class="col-md-6"><label class="labels">Uzvārds</label><input type="text" class="form-control" placeholder="Surname" th:value="${client.surname}"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Lietotājvārds</label><input type="text" class="form-control" placeholder="Enter username" th:value="${client.username}"></div>
+                        <div class="col-md-12"><label class="labels">Vecums</label><input type="text" class="form-control" placeholder="Enter age" th:value="${client.age}"></div>
+                        <div class="col-md-12"><label class="labels">Personas kods</label><input type="text" class="form-control" placeholder="Enter person code" th:value="${client.personCode}"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6"><label class="labels">Parole</label><input type="text" class="form-control" placeholder="Enter password" th:value="${client.password}"></div>
+                        <div class="col-md-6"><label class="labels">Apstiprinat paroli</label><input type="password" class="form-control" placeholder="Confirm password"></div>
+                    </div>
+                    <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <footer>
+        <p>© 2024 Runcis.</p>
+    </footer>
+</body>
+</html>

@@ -1,31 +1,19 @@
-package com.example.Autoskola.controller;
+// package com.example.Autoskola.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+// import org.springframework.beans.factory.annotation.Autowired;
+// import org.springframework.stereotype.Controller;
+// import org.springframework.ui.Model;
 
-import com.example.Autoskola.entity.Client;
-import com.example.Autoskola.repository.ClientRepository;
+// import com.example.Autoskola.entity.Client;
+// import com.example.Autoskola.repository.ClientRepository;
 
 
 
-@Controller
-public class ClientController {
+// @Controller
+// public class ClientController {
 
-    @Autowired
-    private ClientRepository clientRepository;
+//     @Autowired
+//     private ClientRepository clientRepository;
     
-
-
-    public String showProfile(Model model) {
-        String loggedInUsername = "testuser";
-
-        Client client = clientRepository.findByUsername(loggedInUsername);
-       
-
-        model.addAttribute("user", client);
-
-        return "profile";
-    }
-}
+// }
 
