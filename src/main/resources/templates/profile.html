@@ -23,7 +23,7 @@
     <div class="profile-container">
         <div class="profile-section">
             <div class="profile-info">
-                <span class="bold" th:text="${client.name + ' ' + client.surname}"></span>
+                <h2 class="bold" th:text="${client.name + ' ' + client.surname}"></h2>
                 <span class="subtext" th:text="${client.username}"></span>
             </div>
         </div>
@@ -48,6 +48,7 @@
                 </div>
                 <div class="button-container">
                     <button class="profile-button" onclick="window.location.href='/RedigetProfilu'">Rediģēt profilu</button>
+                    <button class="profile-button" onclick="window.location.href='/DzestProfilu'">Dzēst profilu</button>
                 </div>
             </div>
         </div>

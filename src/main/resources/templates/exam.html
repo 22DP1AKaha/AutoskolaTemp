@@ -17,17 +17,25 @@
                     <img th:src="${question.imageUrl}" alt="Image not found">
                     <input type="hidden" name="questionId" th:value="${question.id}">
                     
-                    <input type="radio" id="answer1" name="selectedAnswer" th:value="${question.answer1}">
-                    <label for="answer1" th:text="${question.answer1}"></label><br>
+                    <span th:if="${question.answer1 != null}">
+                        <input type="radio" id="answer1" name="selectedAnswer" th:value="${question.answer1}">
+                        <label for="answer1" th:text="${question.answer1}"></label><br>
+                    </span>
                     
-                    <input type="radio" id="answer2" name="selectedAnswer" th:value="${question.answer2}">
-                    <label for="answer2" th:text="${question.answer2}"></label><br>
+                    <span th:if="${question.answer2 != null}">
+                        <input type="radio" id="answer2" name="selectedAnswer" th:value="${question.answer2}">
+                        <label for="answer2" th:text="${question.answer2}"></label><br>
+                    </span>
+                                        
+                    <span th:if="${question.answer3 != null}">
+                        <input type="radio" id="answer3" name="selectedAnswer" th:value="${question.answer3}">
+                        <label for="answer3" th:text="${question.answer3}"></label><br>
+                    </span>
                     
-                    <input type="radio" id="answer3" name="selectedAnswer" th:value="${question.answer3}">
-                    <label for="answer3" th:text="${question.answer3}"></label><br>
-                    
-                    <input type="radio" id="answer4" name="selectedAnswer" th:value="${question.answer4}">
-                    <label for="answer4" th:text="${question.answer4}"></label><br>
+                    <span th:if="${question.answer4 != null}">
+                        <input type="radio" id="answer4" name="selectedAnswer" th:value="${question.answer4}">
+                        <label for="answer4" th:text="${question.answer4}"></label><br>
+                    </span>
                 </li>
             </ul>
             <button type="submit">Submit</button>
