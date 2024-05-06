@@ -1,13 +1,16 @@
 package com.example.Autoskola.controller;
 
+import com.example.Autoskola.entity.Client;
 import com.example.Autoskola.entity.Exam;
 import com.example.Autoskola.repository.ExamRepository;
+import com.example.Autoskola.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -16,46 +19,63 @@ public class ExamController {
     @Autowired
     private ExamRepository examRepository;
 
+    @Autowired
+    private ClientRepository clientRepository;
+
+    private final int totalQuestions = 20;
+    private int currentQuestionIndex = 0;
+    private int score = 0;
+
     @GetMapping("/autotests")
-    public String startExam() {
-        return "redirect:/question?questionIndex=0&score=0";
-    }
+    public String showExamPage(Model model) {
+        Client client = clientRepository.findByIsActiveTrue();
+        if (client != null) {
+            List<Exam> examQuestions = examRepository.findAll();
 
-    @GetMapping("/question")
-    public String showQuestion(@RequestParam("questionIndex") int questionIndex, @RequestParam("score") int score, Model model) {
-        List<Exam> allExams = examRepository.findAll();
-        Collections.shuffle(allExams);
+            if (examQuestions.size() < totalQuestions) {
+                model.addAttribute("error", "Nav pietiekami jautājumu datubāzē.");
+                return "error_page";
+            }
 
-        if (questionIndex >= 20) {
-            return "redirect:/exam_result?score=" + score;
+            if (currentQuestionIndex >= totalQuestions) {
+                return "redirect:/testarezultats";
+            }
+
+            Exam currentQuestion = examQuestions.get(currentQuestionIndex);
+            model.addAttribute("questionNumber", currentQuestionIndex + 1);
+            model.addAttribute("question", currentQuestion);
+            return "exam";
         }
-
-        Exam currentExam = allExams.get(questionIndex);
-        model.addAttribute("question", currentExam);
-        model.addAttribute("questionNumber", questionIndex + 1);
-        model.addAttribute("totalQuestions", 7);
-        model.addAttribute("score", score);
-        return "exam";
+        return "redirect:/";
     }
 
     @PostMapping("/submit")
-    public String submitAnswer(@RequestParam("questionIndex") int questionIndex,
-                               @RequestParam("selectedAnswer") String selectedAnswer,
-                               @RequestParam("score") int score) {
-        List<Exam> allExams = examRepository.findAll();
-        Exam currentExam = allExams.get(questionIndex);
+    public String submitAnswer(@RequestParam("selectedAnswer") String selectedAnswer) {
+        if (selectedAnswer == null || selectedAnswer.isEmpty()) {
+            return "redirect:/autotests?error=izvēlieties atbildi";
+        }
 
-        if (selectedAnswer.equals(currentExam.getCorrectAnswer())) {
+        List<Exam> examQuestions = examRepository.findAll();
+        Exam currentQuestion = examQuestions.get(currentQuestionIndex);
+
+        String correctAnswer = currentQuestion.getCorrectAnswer();
+        if (selectedAnswer.equals(correctAnswer)) {
             score++;
         }
 
-        questionIndex++;
-        return "redirect:/question?questionIndex=" + questionIndex + "&score=" + score;
+        currentQuestionIndex++;
+
+        return "redirect:/autotests";
     }
 
-    @GetMapping("/exam_result")
-    public String showExamResult(@RequestParam("score") int score, Model model) {
+    @GetMapping("/testarezultats")
+    public String showResultPage(Model model) {
         model.addAttribute("score", score);
+        if (score >= 18) {
+            model.addAttribute("result", "Congratulations! You passed the exam.");
+        } else {
+            model.addAttribute("result", "Sorry, you failed the exam.");
+        }
         return "exam_result";
     }
 }

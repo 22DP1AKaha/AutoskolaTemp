@@ -9,5 +9,10 @@
     <h2>Exam Result</h2>
     <p>Your score: <span th:text="${score}"></span>/20</p>
     <p th:if="${score >= 18}">Congratulations! You passed the exam.</p>
+
+    <form action="/autotests" method="get">
+        <button type="submit">Pildīt testu vēlreiz</button>
+    </form>
+    
 </body>
 </html>
