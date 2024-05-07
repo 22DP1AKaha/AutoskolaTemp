@@ -7,14 +7,14 @@
 </head>
 <body>
     <div class="container">
-        <h2>Exam</h2>
+        <h2>Tests</h2>
         <form action="/submit" method="post">
             <input type="hidden" name="questionIndex" th:value="${questionNumber - 1}">
             <input type="hidden" name="score" th:value="${score}">
             <ul>
                 <li>
-                    <p><strong>Question:</strong> <span th:text="${question.question}"></span></p>
-                    <img th:src="${question.imageUrl}" alt="Image not found">
+                    <p><strong>Jautājums:</strong> <span th:text="${question.question}"></span></p>
+                    <img th:src="${question.imageUrl}" alt="Image not found" width="1200" height="600"> <br>
                     <input type="hidden" name="questionId" th:value="${question.id}">
                     
                     <span th:if="${question.answer1 != null}">
@@ -38,7 +38,7 @@
                     </span>
                 </li>
             </ul>
-            <button type="submit">Submit</button>
+            <button type="submit">Iesniegt</button>
         </form>
     </div>
 </body>

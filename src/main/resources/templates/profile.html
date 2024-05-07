@@ -46,6 +46,9 @@
                 <div class="detail-row">
                     <div class="detail-label">Parole: </div><span class="detail-value" th:text="${client.password}"></span>
                 </div>
+                <div class="detail-row">
+                    <div class="detail-label">Pēdējā testa rezultāts: </div><span class="detail-value" th:text="${score}"></span>
+                </div>
                 <div class="button-container">
                     <button class="profile-button" onclick="window.location.href='/RedigetProfilu'">Rediģēt profilu</button>
                     <button class="profile-button" onclick="window.location.href='/DzestProfilu'">Dzēst profilu</button>
