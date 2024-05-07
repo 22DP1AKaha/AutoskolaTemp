@@ -1,0 +1,2 @@
+Ja programma tiek palaista caur IDE aiziet līdz AutoskolaApplication.java failaim un spiest run.
+Apakšējā labajā stūrī parādīsies logs, kurā jāuzspiež poga "Open in browser", kas atvērs mūsu programmu default pārlūkā.

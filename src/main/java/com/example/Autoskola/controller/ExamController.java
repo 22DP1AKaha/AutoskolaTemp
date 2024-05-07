@@ -78,11 +78,7 @@ public class ExamController {
     @GetMapping("/testarezultats")
     public String showResultPage(Model model) {
         model.addAttribute("score", score);
-        if (score >= 18) {
-            model.addAttribute("result", "Apsveicam! Jūs nokārtojāt eksāmenu.");
-        } else {
-            model.addAttribute("result", "Diemžēl, rezultāt nav pietiekams.");
-        }
+        
         return "exam_result";
     }
 
