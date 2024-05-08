@@ -1,9 +1,8 @@
 package com.example.Autoskola.controller;
 
-import com.example.Autoskola.entity.Client;
-import com.example.Autoskola.entity.Exam;
-import com.example.Autoskola.repository.ExamRepository;
-import com.example.Autoskola.repository.ClientRepository;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
+import com.example.Autoskola.entity.Client;
+import com.example.Autoskola.entity.Exam;
+import com.example.Autoskola.repository.ClientRepository;
+import com.example.Autoskola.repository.ExamRepository;
 
 @Controller
 public class ExamController {
@@ -26,14 +28,14 @@ public class ExamController {
     private final int totalQuestions = 20;
     private int currentQuestionIndex = 0;
     public int score = 0;
-    private Boolean StartNewExam = true;
+
+    private List<Exam> shuffledQuestions;
 
     @GetMapping("/autotests")
     public String showExamPage(Model model) {
         Client client = clientRepository.findByIsActiveTrue();
         if (client != null) {
-            if (StartNewExam = true){
-                StartNewExam = false; 
+            if (shuffledQuestions == null || shuffledQuestions.isEmpty()) {
                 List<Exam> examQuestions = examRepository.findAll();
 
                 if (examQuestions.size() < totalQuestions) {
@@ -41,18 +43,24 @@ public class ExamController {
                     return "error_page";
                 }
 
-                if (currentQuestionIndex >= totalQuestions) {
-                    return "redirect:/testarezultats";
-                }
-
-                Exam currentQuestion = examQuestions.get(currentQuestionIndex);
-                model.addAttribute("questionNumber", currentQuestionIndex + 1);
-                model.addAttribute("question", currentQuestion);
-                return "exam";
+                shuffleQuestions(examQuestions);
             }
-            return "redirect:/";          
+
+            if (currentQuestionIndex >= totalQuestions) {
+                return "redirect:/testarezultats";
+            }
+
+            Exam currentQuestion = shuffledQuestions.get(currentQuestionIndex);
+            model.addAttribute("questionNumber", currentQuestionIndex + 1);
+            model.addAttribute("question", currentQuestion);
+            return "exam";
         }
         return "redirect:/";
+    }
+
+    private void shuffleQuestions(List<Exam> questions) {
+        shuffledQuestions = questions.subList(0, totalQuestions);
+        Collections.shuffle(shuffledQuestions);
     }
 
     @PostMapping("/submit")
@@ -62,8 +70,7 @@ public class ExamController {
             return "redirect:/autotests";
         }
 
-        List<Exam> examQuestions = examRepository.findAll();
-        Exam currentQuestion = examQuestions.get(currentQuestionIndex);
+        Exam currentQuestion = shuffledQuestions.get(currentQuestionIndex);
 
         String correctAnswer = currentQuestion.getCorrectAnswer();
         if (selectedAnswer.equals(correctAnswer)) {
@@ -84,9 +91,9 @@ public class ExamController {
 
     @GetMapping("/atkartotTestu")
     public String restartExam(){
-        StartNewExam = true;
         currentQuestionIndex = 0;
         score = 0;
+        shuffledQuestions = null; // Reset shuffled questions
         return "redirect:/autotests";
     }
 }

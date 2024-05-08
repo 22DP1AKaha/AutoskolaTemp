@@ -14,7 +14,7 @@
             <ul>
                 <li>
                     <p><strong>Jautājums:</strong> <span th:text="${question.question}"></span></p>
-                    <img th:src="${question.imageUrl}" alt="Image not found" width="1200" height="600"> <br>
+                    <img th:src="${question.imageUrl}" alt="Image not found" width="1000" height="600"> <br>
                     <input type="hidden" name="questionId" th:value="${question.id}">
                     
                     <span th:if="${question.answer1 != null}">

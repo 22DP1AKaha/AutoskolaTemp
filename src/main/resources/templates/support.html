@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson List</title>
+    <link rel="stylesheet" href="/css/supportstyle.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            Runcis
+        </div>
+        <ul class="nav-links">
+            <a href="/">Sākums</a>
+            <a href="/autotests">Tests</a>
+            <a href="/par">Par</a>
+            <a href="/kontakti">Kontakti</a>
+            <a href="/instruktori">Instruktori</a>
+            <a href="/iziet">Iziet</a>
+        </ul>
+    </nav>
+<div class="container">
+    <div class="main">
+        <div class="table-container">
+            <div class="support-form">
+                <h1>Ziņas nosūtne</h1>
+                <form th:action="@{/sutitZinu}" method="post">
+                    <input type="text" id="name" name="name" placeholder="Jūsu vārds" required>
+                    <input type="email" id="email" name="email" placeholder="Jūsu E-pasts" required>
+                    <textarea id="message" name="message" placeholder="Jūsu ziņa" required></textarea>
+                    <input type="submit" value="Sūtīt">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
