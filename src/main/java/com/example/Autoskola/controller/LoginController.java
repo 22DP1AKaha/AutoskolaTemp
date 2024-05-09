@@ -10,38 +10,37 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.Autoskola.entity.Client;
 import com.example.Autoskola.repository.ClientRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
     @Autowired
+    private HttpSession session;
+
+    @Autowired
     private ClientRepository clientRepository;
-    private Client client;  
-    
+
     @GetMapping("/ienakt")
     public String login() {
-
-        client = clientRepository.findByIsActiveTrue();
+        Client client = clientRepository.findByIsActiveTrue();
         if (client != null) {
-            return "redirect:/profile"; 
-        }
-        else
-        {
-        return "login"; 
+            return "redirect:/profile";
+        } else {
+            return "login";
         }
     }
-    
+
     @PostMapping("/ienakt")
     public String login(@RequestParam("E-pasts") String username, @RequestParam("parole") String password, RedirectAttributes redirectAttributes) {
-        client = clientRepository.findByUsername(username);
+        Client client = clientRepository.findByUsername(username);
 
-        if (client != null && client.getPassword().equals(password)) 
-        {
+        if (client != null && client.getPassword().equals(password)) {
             client.isActive = true;
             clientRepository.save(client);
-            return "redirect:/"; 
-            
+            return "redirect:/";
         } else {
-            redirectAttributes.addFlashAttribute("error", "Nepareizs e-pasts vai parole"); 
-            return "redirect:/ienakt"; 
+            redirectAttributes.addFlashAttribute("error", "Nepareizs e-pasts vai parole");
+            return "redirect:/ienakt";
         }
     }
 
@@ -49,6 +48,7 @@ public class LoginController {
     public String logout() {
         Client client = clientRepository.findByIsActiveTrue();
         if (client != null) {
+            session.invalidate();
             client.isActive = false;
             clientRepository.save(client);
         }
