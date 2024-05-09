@@ -25,7 +25,7 @@
         <div class="profile-section">
             <div class="profile-info">
                 <h2 class="bold" th:text="${client.name + ' ' + client.surname}"></h2>
-                <span class="subtext" th:text="${client.username}"></span>
+                <span class="subtext" th:text="${client.username}"></span><br><br><br>
                 <span th:if="${client != null}"><button onclick="window.location.href='/testaRezultati'">Apskatīt testa rezultātus</button></span>
             </div>
         </div>
@@ -55,5 +55,10 @@
             </div>
         </div>
     </div>
+
+    <footer>
+        <p>© 2024 Runcis.</p>
+    </footer>
+    
 </body>
 </html>

@@ -15,7 +15,7 @@ body {
 }
 
 nav {
-    background: white;
+    background: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -26,13 +26,13 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: black;
+    color: white;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .nav-links li {
@@ -40,11 +40,11 @@ nav {
 }
 
 .nav-links a {
-    color: black;
+    color: white;
     padding: 10px;
     font-weight: bold;
     text-decoration: none;
-    display: inline-block; 
+    display: inline-block;
 }
 
 .nav-links a:hover {
@@ -61,8 +61,8 @@ nav {
 }
 
 .profile-section {
-    flex-basis: 30%;
-    padding: 20px;
+    flex-basis: 40%;
+    padding: 40px;
     border-radius: 10px;
     background-color: #fff;
     margin-bottom: 20px;
@@ -89,5 +89,30 @@ nav {
 
 .detail-value {
     font-style: italic;
+}
+
+button {
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    border: none;
+    color: white;
+    background: black;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+button:hover {
+    background: silver;
+    color: black;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 20px ;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 

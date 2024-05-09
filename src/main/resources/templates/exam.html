@@ -13,7 +13,7 @@
             <input type="hidden" name="score" th:value="${score}">
             <ul>
                 <li>
-                    <p><strong>Jautājums:</strong> <span th:text="${question.question}"></span></p>
+                    <p><strong>Jautājums #<span th:text="${questionNumber}"></span>:</strong> <span th:text="${question.question}"></span></p>
                     <img th:src="${question.imageUrl}" alt="Image not found" width="1000" height="600"> <br>
                     <input type="hidden" name="questionId" th:value="${question.id}">
                     

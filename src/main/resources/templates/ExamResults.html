@@ -4,27 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exam Results</title>
-    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Link to external CSS file -->
+    <link rel="stylesheet" type="text/css" href="/css/examresultstyle.css"> 
 </head>
 <body>
+    <nav>
+        <div class="logo">
+            Runcis
+        </div>
+        <ul class="nav-links">
+            <a href="/">Sākums</a>
+            <a href="/autotests">Tests</a>
+            <a href="/par">Par</a>
+            <a href="/kontakti">Kontakti</a>
+            <a href="/instruktori">Instruktori</a>
+            <a href="/iziet">Iziet</a>
+        </ul>
+    </nav>
     <div class="container">
-        <h2>Exam Results</h2>
+        <h2>Testa rezultāti</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Client Username</th>
-                    <th>Score</th>
+                    <th>Lietotāja E-pasts</th>
+                    <th>Punktu skaits</th>
                 </tr>
             </thead>
             <tbody>
                 <th:block th:each="result : ${examResults}">
                     <tr>
                         <td th:text="${result.clientUsername}"></td>
-                        <td th:text="${result.score}"></td>
+                        <td th:text="${result.score} + '/20'"></td>
                     </tr>
                 </th:block>
             </tbody>
         </table>
+        <div>
+            <form action="/testaRezultati" method="get">
+                <label>Kārtot pēc:</label>
+                <select name="sortBy"> 
+                    <option value="mostPoints">Visvairāk punkti</option>
+                    <option value="leastPoints">Vismazāk punkti</option>
+                    <option value="date">Datuma (vecākais pirmais)</option>
+                </select>
+                <button type="submit">kārtot</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

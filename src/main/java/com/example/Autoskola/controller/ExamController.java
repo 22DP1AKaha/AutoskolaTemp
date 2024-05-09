@@ -109,10 +109,31 @@ public class ExamController {
     }
 
     @GetMapping("/testaRezultati")
-    public String ApskatitRezultatus(Model model) {
-        List<ExamResults> examResults =  examResultsRepository.findAll();
+public String ApskatitRezultatus(@RequestParam(value = "sortBy", defaultValue = "mostPoints") String sortBy, Model model) {
+    Client client = clientRepository.findByIsActiveTrue();
+    if (client != null) {
+        List<ExamResults> examResults;
+
+        switch (sortBy) {
+            case "mostPoints":
+                examResults = examResultsRepository.findAllByClientUsernameOrderByScoreDesc(client.getUsername());
+                break;
+            case "leastPoints":
+                examResults = examResultsRepository.findAllByClientUsernameOrderByScoreAsc(client.getUsername());
+                break;
+            case "date":
+                examResults = examResultsRepository.findAllByClientUsernameOrderByIdAsc(client.getUsername());
+                break;
+            default:
+                examResults = examResultsRepository.findAllByClientUsernameOrderByScoreDesc(client.getUsername());
+                break;
+        }
+
         model.addAttribute("examResults", examResults);
         return "ExamResults";
     }
+    return "redirect:/";
+}
+
     
 }
