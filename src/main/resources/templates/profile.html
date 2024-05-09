@@ -26,6 +26,7 @@
             <div class="profile-info">
                 <h2 class="bold" th:text="${client.name + ' ' + client.surname}"></h2>
                 <span class="subtext" th:text="${client.username}"></span>
+                <span th:if="${client != null}"><button onclick="window.location.href='/testaRezultati'">Apskatīt testa rezultātus</button></span>
             </div>
         </div>
         <div class="profile-section">

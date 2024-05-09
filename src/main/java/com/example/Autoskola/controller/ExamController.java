@@ -13,8 +13,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.Autoskola.entity.Client;
 import com.example.Autoskola.entity.Exam;
+import com.example.Autoskola.entity.ExamResults;
 import com.example.Autoskola.repository.ClientRepository;
 import com.example.Autoskola.repository.ExamRepository;
+import com.example.Autoskola.repository.ExamResultsRepository;
 
 @Controller
 public class ExamController {
@@ -24,6 +26,9 @@ public class ExamController {
 
     @Autowired
     private ClientRepository clientRepository;
+
+    @Autowired
+    private ExamResultsRepository examResultsRepository;
 
     private final int totalQuestions = 20;
     private int currentQuestionIndex = 0;
@@ -85,7 +90,8 @@ public class ExamController {
     @GetMapping("/testarezultats")
     public String showResultPage(Model model) {
         model.addAttribute("score", score);
-        
+        Client client = clientRepository.findByIsActiveTrue();
+        saveResult(score, client.getUsername());
         return "exam_result";
     }
 
@@ -93,7 +99,20 @@ public class ExamController {
     public String restartExam(){
         currentQuestionIndex = 0;
         score = 0;
-        shuffledQuestions = null; // Reset shuffled questions
+        shuffledQuestions = null;
         return "redirect:/autotests";
     }
+
+    public void saveResult(int score, String ClientUsername){
+        ExamResults examResult = new ExamResults(score, ClientUsername);
+        examResultsRepository.save(examResult);
+    }
+
+    @GetMapping("/testaRezultati")
+    public String ApskatitRezultatus(Model model) {
+        List<ExamResults> examResults =  examResultsRepository.findAll();
+        model.addAttribute("examResults", examResults);
+        return "ExamResults";
+    }
+    
 }
