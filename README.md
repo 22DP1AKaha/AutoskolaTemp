@@ -1,2 +1,1 @@
-# AutoskolaTemp
-
+# Autoskolas WEB aplikācija
